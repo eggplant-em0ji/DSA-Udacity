@@ -1,0 +1,16 @@
+Task0.py:
+My solution is O(1) because it only grabs the first and last lines of each CSV
+
+Task1.py:
+This solution is O(N) because the program loops through the CSV file once to find and add unique numbers. The loop is O(N) and the find and add operation is O(1). Finally the program gets the size of the set of unique numbers which is O(1).
+
+Task2.py:
+This solution is O(N) because it loops through the CSV files once. During each loop the program checks if the number is already in the Dict keys which is O(1) then adds the duration to the value of the key which is also O(1). Finally the program loops through the dict once to get the key with the maximum value which is O(N).
+
+Task3.py:
+Part A is O(N) because it loops through all of the calls once to get unique area codes, which is O(N). Then it sorts the unique area codes which is O(nlogn) Finally it loops through the sorted area codes for print which is O(N). In total the complexity is O(N) because O(2NlogN) = O(NlogN).
+
+Part B is O(N) because it loops through all of the calls once to determine what percentage of calls from Bangalore are to Bangalore numbers. Finally it does a floating point division which is O(1).
+
+Task4.py:
+My solution is O(N^2) because for each element in set outgoing calls which takes O(N), it checks whether that element is in 3 other sets, which takes O(3N). Finally it sorts the possible telemarketers which is O(NlogN) and prints each which is O(N).
