@@ -1,3 +1,5 @@
+# A node in an OrderedDict class, implemented from scratch with only required features for this problem
+# Not the same as an OrderedDict that's imported from the collections module
 class Node:
     def __init__(self, key, value):
         self._key = key
@@ -6,10 +8,12 @@ class Node:
         self._prev = None
 
 class OrderedDict():
+    # O(1)
     def __init__(self):
         self._start = None
         self._length = 0
 
+    # O(n)
     def get_value(self, key):
         if self._start is None:
             return(-1)
@@ -23,6 +27,7 @@ class OrderedDict():
                 else:
                     n = n._next
     
+    # O(n) for this implementation without hashing the key. The built-in implementation of OrderedDict in Python has an O(1)
     def is_key_in_cache(self, key):
         if self._start is None:
             return(False)
@@ -36,6 +41,7 @@ class OrderedDict():
                 else:
                     n = n._next      
 
+    # O(1)
     def insert_at_end(self, key, value):
         if self._start is None:
             new_node = Node(key, value)
@@ -50,6 +56,7 @@ class OrderedDict():
         new_node._prev = n
         self._length += 1
 
+    # O(1)
     def delete_at_start(self):
         if self._start is None:
             self._length = 0
@@ -62,6 +69,7 @@ class OrderedDict():
         self._start._prev = None
         self._length -= 1
     
+    # O(1)
     def move_to_end(self, key):
         if self._start is None:
             return
@@ -89,11 +97,13 @@ class LRU_Cache(object):
 
     def __init__(self, capacity):
         # Initialize class variables
+        # O(1)
         self._capacity = capacity
         self._cache = OrderedDict()
 
     def get(self, key):
         # Retrieve item from provided key. Return -1 if nonexistent.
+        # O(n)
         if key == None:
             return(-1)
         elif self._cache.is_key_in_cache(key) == True:
@@ -103,11 +113,14 @@ class LRU_Cache(object):
     def set(self, key, value):
         if key == None:
             return
+        # O(n)
         elif self._cache.is_key_in_cache(key) == True:
             self._cache.move_to_end(key)
+        # O(1)
         elif self._cache._length >= self._capacity:
             self._cache.delete_at_start()
             self._cache.insert_at_end(key, value)
+        # O(1)
         else:
             self._cache.insert_at_end(key, value)
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. 

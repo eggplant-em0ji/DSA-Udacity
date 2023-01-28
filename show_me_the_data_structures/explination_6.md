@@ -1,0 +1,4 @@
+I decided to use Python's built in set() data type to find the union and intersections of two sets of numbers in linked list format. By convention union and intersection ignores duplicates and every operation in a Python set() takes O(1) time and O(n) space, so this implementation should have both a time and space complexity of O(n). This implementation is faster than using a merge sort algorithm to sort each linked list
+then merging the sorted lists to find the union and intersection, which takes O(nlog(n)) time.
+For Test Cases 2 and 3, the time complexity of calculating all the prime numbers up to n is O(nlog(log(n))) and the space complexity for storing primes O(log(log(n))).
+The time complexity for calculating the Fibonnacci Sequence up to n is O(n) and the space complexity is also O(n)

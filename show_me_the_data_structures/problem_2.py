@@ -18,12 +18,15 @@ def find_files(suffix, path):
     """
     if os.path.exists(path):
         files = []
+        # O(1); only 1 path provided
         folders_to_search = [path]
         while folders_to_search:
             current_folder = folders_to_search.pop(0) + "/"
             items_in_current_folder = os.listdir(current_folder)
+            # O(n) for n items in a folder, which accomplishes both searching for files with the provided suffix and adding newly found folders to the folders_to_search list
             for item in items_in_current_folder:
                 item_path = current_folder + item
+                # O(n) for n items in a new folder each time folders_to_search adds a new folder
                 if os.path.isdir(item_path):
                     folders_to_search.append(item_path)
                 elif str(item_path).endswith(suffix):

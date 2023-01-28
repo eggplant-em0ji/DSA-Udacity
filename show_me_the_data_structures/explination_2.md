@@ -1,0 +1,2 @@
+My implementation performs a BFS lookup of os.listdir() of a given folder all the way down to the lowest level file or subfolder.
+This implementation takes O(n^m) time for n items per level of tree of m height. The space complexity is also O(n^m).

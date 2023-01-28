@@ -1,0 +1,4 @@
+I implemented a blockchain that stores the head and tail pointers plus the previous and next pointers for each block in the blockchain. This solution has the same worse case O(n) space and time complexity
+as the starter code provided that only stores the previous hash of each block, although each n in n blocks takes more time and space in my implementation. I decided to store the blockchain in a doubly linked
+list because I read that blockchains are supposed to be easily verified for integrity by all the users of the blockchain, and I wasn't sure how that was possible if the chain only stored the previous hash of
+each block plus the current block's data.
